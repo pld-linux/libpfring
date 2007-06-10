@@ -8,7 +8,7 @@ Release:	0.%{_cvs_snap}.1
 License:	BSD
 Group:		Libraries
 Source0:	%{name}-%{version}-%{_cvs_snap}.tar.bz2
-# Source0-md5:	b0626ad59004fe5767ddd2ce743a2271
+# Source0-md5:	450eb77c3a3cbdf778c11d4d66595580
 URL:		http://www.ntop.org/PF_RING.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
