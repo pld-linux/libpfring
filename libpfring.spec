@@ -4,11 +4,11 @@
 Summary:	user space library used to manpulate PF_RING
 Name:		libpfring
 Version:	0.9.4
-Release:	0.%{_cvs_snap}.1
+Release:	0.%{_cvs_snap}.2
 License:	BSD
 Group:		Libraries
 Source0:	%{name}-%{version}-%{_cvs_snap}.tar.bz2
-# Source0-md5:	450eb77c3a3cbdf778c11d4d66595580
+# Source0-md5:	dcbde7036a9ada8f53a42c2a681e5c66
 URL:		http://www.ntop.org/PF_RING.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,6 +51,7 @@ install -D libpfring.a		$RPM_BUILD_ROOT%{_libdir}/libpfring.a
 install -D libpfring.so.0.9.4	$RPM_BUILD_ROOT%{_libdir}/libpfring.so.0.9.4
 install -D libpfring.so		$RPM_BUILD_ROOT%{_libdir}/libpfring.so
 install -D pfring.h		$RPM_BUILD_ROOT%{_includedir}/pfring.h
+install -D ring.h		$RPM_BUILD_ROOT%{_includedir}/ring.h
 
 %clean
 rm -rf $RPM_BUILD_ROOT
