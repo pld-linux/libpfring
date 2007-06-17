@@ -1,37 +1,48 @@
 
-%define		_cvs_snap	20070610
+%define		cvs_snap	20070610
 
-Summary:	user space library used to manpulate PF_RING
+Summary:	User space library used to manipulate PF_RING
+Summary(pl.UTF-8):	Biblioteka przestrzeni użytkownika do obsługi PF_RING
 Name:		libpfring
 Version:	0.9.4
-Release:	0.%{_cvs_snap}.2
+Release:	0.%{cvs_snap}.2
 License:	BSD
 Group:		Libraries
-Source0:	%{name}-%{version}-%{_cvs_snap}.tar.bz2
+Source0:	%{name}-%{version}-%{cvs_snap}.tar.bz2
 # Source0-md5:	dcbde7036a9ada8f53a42c2a681e5c66
 URL:		http://www.ntop.org/PF_RING.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libpfring is a user space library used to manpulate PF_RING
+libpfring is a user space library used to manipulate PF_RING.
+
+%description -l pl.UTF-8
+libpfring to biblioteka przestrzeni użytkownika służąca do obsługi
+PF_RING.
 
 %package devel
-Summary:	Header files and develpment documentation for libpfring
+Summary:	Header files for libpfring
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libpfring
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
-libpfring is a user space library used to manpulate PF_RING
+Header files for libpfring.
+
+%description devel -l pl.UTF-8
+Pliki nagłówkowe biblioteki libpfring.
 
 %package static
 Summary:	Static libpfring library
+Summary(pl.UTF-8):	Statyczna biblioteka libpfring
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-libpfring is a user space library used to manpulate PF_RING
+Static libpfring library.
 
-This package contains the static library used for development.
+%description static -l pl.UTF-8
+Statyczna biblioteka libpfring.
 
 %prep
 %setup -q
@@ -61,13 +72,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libpfring.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libpfring.so
 %{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libpfring.a
