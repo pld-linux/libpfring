@@ -49,18 +49,20 @@ Statyczna biblioteka libpfring.
 
 %build
 %{__make} \
-	CC="%{__cc}"
+	CC="%{__cc} %{rpmcflags} -fPIC -Wall"
 
 %{__cc} -shared -Wl,-soname -Wl,libpfring.so.0.9.4 %{rpmldflags} -o libpfring.so.0.9.4 *.o 
 
-ln -s libpfring.so.0.9.4 libpfring.so
+%{__make} clean
+%{__make} \
+	CC="%{__cc} %{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 install -D libpfring.a		$RPM_BUILD_ROOT%{_libdir}/libpfring.a
 install -D libpfring.so.0.9.4	$RPM_BUILD_ROOT%{_libdir}/libpfring.so.0.9.4
-install -D libpfring.so		$RPM_BUILD_ROOT%{_libdir}/libpfring.so
+ln -sf libpfring.so.0.9.4	$RPM_BUILD_ROOT%{_libdir}/libpfring.so
 install -D pfring.h		$RPM_BUILD_ROOT%{_includedir}/pfring.h
 install -D ring.h		$RPM_BUILD_ROOT%{_includedir}/ring.h
 
